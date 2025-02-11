@@ -1,31 +1,28 @@
-version: '3.8'
-
 services:
-  mysql:
-    build: ./mysql
-    container_name: cine_mysql
+  db:
+    image: jumice93/calculadora:v1
+    container_name: contenedorMiApp
     environment:
-      MYSQL_ROOT_PASSWORD: contrasenyaRoot
+      MYSQL_ROOT_PASSWORD: root
       MYSQL_DATABASE: cine
-      MYSQL_USER: usuario1
-      MYSQL_PASSWORD: contrasenyaUsuario1
-    volumes:
-      - ./mysql/cine.sql:/docker-entrypoint-initdb.d/cine.sql
+      MYSQL_USER: root
+      MYSQL_PASSWORD: root
     ports:
-      - "3306:3306"
-    networks:
-      - cine_network
-
-  src:
-    build: ./src
-    container_name: cine_src
+     - "3306:3306"
+     
+  php:
+    image: jumice93/calculadora:v1
+    container_name: contenedorMiApp
     ports:
       - "8080:80"
-    networks:
-      - cine_network
-    depends_on:
-      - mysql
 
-networks:
-  cine_network:
-    driver: bridge
+phpmadmin:
+    image: phpmyadmin/phpmyadmin:latest
+    container_name: contenedorPhpMyAdmin
+    environment:
+      PMA_HOST: db
+      MYSQL_ROOT_PASSWORD: root
+    ports:
+      - "8081:80"
+    depends_on:
+     - db
