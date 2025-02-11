@@ -1,5 +1,5 @@
 <?php
-$servername = "db";  // Usar localhost si estás trabajando localmente
+$servername = "localhost";  // Usar localhost si estás trabajando localmente
 $username = "usuario1";     // Asegúrate de usar el usuario correcto
 $password = "contrasenyaUsuario1"; // La contraseña correcta
 $dbname = "cine";           // El nombre de la base de datos que creaste
