@@ -1,6 +1,6 @@
  services:
   db:
-    image: jumice93/mi_cine:v1
+    image: jumice93/mi_app_cine:v1
     container_name: contenedorMiCine
     ports:
       - "3306:3306"
