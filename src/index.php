@@ -1,11 +1,11 @@
 <?php
-$servername = "localhost";  // Usar localhost si estás trabajando localmente
-$username = "root";     // Asegúrate de usar el usuario correcto
-$password = ""; // La contraseña correcta
+$servername = "db";  // Usar localhost si estás trabajando localmente
+$username = "usuario1";     // Asegúrate de usar el usuario correcto
+$password = "contrasenyaUsuario1"; // La contraseña correcta
 $dbname = "cine";           // El nombre de la base de datos que creaste
 
 // Crear la conexión
-$conn = new mysqli($servername, $username, $password, $dbname);
+$conn = mysqli_connect($servername, $username, $password, $dbname);
 // Comprobar la conexión
 if ($conn->connect_error) {
   die("Conexión fallida: " . $conn->connect_error);
